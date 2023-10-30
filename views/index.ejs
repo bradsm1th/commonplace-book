@@ -1,0 +1,9 @@
+<%- include('./partials/header')%>
+
+  <!-- show only if authenticated -->
+  <% if (user) { %>
+    <p>You're logged in!</p>
+  <% } else { %>
+    <p>Why not <a href="/auth/google">log in</a>?</p>
+    <% } %>
+<%- include('./partials/footer')%>
