@@ -14,7 +14,7 @@ router.get('/', ensureLoggedIn, quotesController.index)
 // GET quotes/new
 router.get('/new', ensureLoggedIn, quotesController.new)
 // GET quotes/:id
-
+router.get('/:id', quotesController.show)
 // POST quotes
 router.post('/', ensureLoggedIn, quotesController.create)
 
