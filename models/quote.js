@@ -4,23 +4,25 @@ const annotationSchema = new mongoose.Schema({
   comment: String,
   where: String,
   why: String,
-  when: String,
+  // when: String, (just use createdAt timestamp)
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }
+}, {
+  timestamps: true
 })
 
 const quoteSchema = new mongoose.Schema({
   content: String,
   author: String,
   // separate schema
-  // user: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'User'
-  // },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   // embedded schema
-  // userAnnotations: [annotationSchema]
+  userAnnotations: [annotationSchema]
 }, {
   timestamps: true
 })

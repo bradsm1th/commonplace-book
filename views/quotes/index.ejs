@@ -4,20 +4,22 @@
 
     <h2>Hi, <%= user.name %>! Here's all your quotes</h2>
 
-    <p class="display-4"><mark>Maybe use BS 'truncate' for long quotes…saving full view for /show?</mark></p>
+    <p class="lead"><mark>Maybe use BS 'truncate' for long quotes and save full view for /show?</mark></p>
 
-    <!-- <pre><%= quotes %></pre> -->
-    <ul>
-      <% quotes.forEach(function(q) { %>
-        <li>
-          <%= q.content %><br />
-          <%= q.author %><br />
-          <!-- <a href="/"><small>Edit me</small></a> -->
-          <a href="/quotes/<%= q._id %>">More…</a>
-        </li>
-        <% }); %>
-    </ul>
+    <% quotes.forEach(function(q) { %>
 
+      <% if (user._id) { %>
+        <ul>
+          <li>
+            <%= q.content %><br />
+            <%= q.author %><br />
+            <%= user.email %><br />
+            <a href="/"><small>Edit me</small></a>
+            <a href="/quotes/<%= q._id %>">More…</a>
+          </li>
+        </ul>
+      <% } %>
+    <% }); %>
 
     <div class="row">
       <div class="col-sm-6 col-md-4">

@@ -10,14 +10,30 @@ module.exports = {
 
 // create has to be 'async…await' bc of the round-trip database actions
 async function create(req, res, next) {
+  // console.log(req.body, "<-- req.body ALL");
   console.log(req.body.content, "<-- quote content");
   console.log(req.body.author, "<-- quote author");
+
+  console.log(req.body.comment, "<-- comment");
+  console.log(req.body.where, "<-- where");
+  console.log(req.body.why, "<-- why");
+
+  console.log(req.user.email, "<-- poster email");
   console.log(req.user.googleId, "<-- poster ID");
   console.log(req.user._id, "<-- Mongo ID");
+
   // console.log(res.locals, "<-- res.locals");
 
   try {
-    const thisQuoteDoc = await QuoteModel.create(req.body)
+
+    // create quote doc
+    const thisQuoteDoc = await QuoteModel.create({
+      content: req.body.content,
+      author: req.body.author,
+      user: req.user._id,
+    })
+
+    await thisQuoteDoc.save();
 
     // ❗❗❗❗
     res.redirect('/quotes');
@@ -32,15 +48,19 @@ async function create(req, res, next) {
 // index for all (my) quotes
 async function index(req, res, next) {
   try {
-    // get all quotes from Mongo
-    const allQuoteDocs = await QuoteModel.find({}); 
+    // get all quotes from Mongo THAT THIS USER ADDED
+
+
+    const allYourQuoteDocs = await QuoteModel.find({
+      user: req.user._id
+    }); 
     // ❗❗❗❗
-    console.log(allQuoteDocs, "<-- all quote docs");
+    console.log(allYourQuoteDocs, "<-- all (your) quote docs");
     // ❗❗❗❗
 
 
     res.render('quotes/index', {
-      quotes: allQuoteDocs
+      quotes: allYourQuoteDocs
     });
   } catch (err) {
     console.log(err)
@@ -67,6 +87,7 @@ async function show(req, res, next) {
     res.render('quotes/show', 
     {
       thisQuoteDoc,
+      user: req.user
     })
 
   } catch (err) {
