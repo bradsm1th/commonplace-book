@@ -13,14 +13,16 @@
 </head>
 
 <body>
-  <nav class="d-flex justify-content-end sticky-top">
-    <!-- Change route/text depending on log-in status -->
-
+  <nav class="d-flex justify-content-start sticky-top">
+    <a href="/">❞</a>
     <% if (user) { %>
-      <a href="/logout">👋 Log out 👋</a>
+        <a href="/quotes"><mark>All quotes</mark></a>
+        <a href="/quotes/new"><mark>Add a quote</mark></a>
+      <!-- Change route/text depending on log-in status -->
+        <a href="/logout" class="ms-auto">👋 Log out 👋</a>
     <% } else { %>
-      <a href="/auth/google">🤞 Log in 🤞</a>
-    <% } %>
+        <a href="/auth/google" class="ms-auto">🤞 Log in 🤞</a>
+      <% } %>
 
   </nav>
   <h1 class="text-center">"Talk doesn't cook rice"</h1>

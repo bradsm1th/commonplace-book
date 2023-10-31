@@ -2,7 +2,8 @@
 
   <!-- show only if authenticated -->
   <% if (user) { %>
-    <p>You're logged in!</p>
+    <p>You're logged in! <span class="text-white bg-info">(<%= user.email %>)</span></p>
+    <a href="/quotes/new">Add a quote</a>
   <% } else { %>
     <p>Why not <a href="/auth/google">log in</a>?</p>
     <% } %>

@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<p>Add a better quote to your book than "<%= title %>"</p>
+
+<form action="/quotes" method="POST">
+
+<label>Quote
+  <textarea name="content" id="" cols="40" rows="2"></textarea>
+</label>
+
+<br />
+
+<label>Author
+  <input type="text" name="author">
+</label>
+
+<br />
+
+
+<button type="submit">Remember this quote</button>
+</form>
+
+<%- include('../partials/footer') %>
