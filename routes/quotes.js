@@ -17,8 +17,12 @@ router.get('/', ensureLoggedIn, quotesController.index)
 router.get('/new', ensureLoggedIn, quotesController.new)
 // GET /quotes/:id
 router.get('/:id', ensureLoggedIn, quotesController.show)
+// GET /quotes/:id/edit
+router.get('/:id/edit', ensureLoggedIn, quotesController.edit);
 // POST /quotes
 router.post('/', ensureLoggedIn, quotesController.create)
+// PUT /quotes/:id
+router.put('/:id', ensureLoggedIn, quotesController.update);
 // DELETE /quotes/:id
 router.delete('/:id', ensureLoggedIn, quotesController.delete);
 

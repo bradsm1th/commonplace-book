@@ -1,0 +1,41 @@
+<%- include('../partials/header')%>
+
+  <!-- <pre><%= hotdogDoc %></pre> -->
+
+  <h2>Quotes</h2>
+  <form 
+    action="/quotes/<%= hotdogDoc._id %>?_method=PUT" 
+    method="POST">
+
+    <!-- content, "" -->
+    <label>Quote:
+      <input name="content" type="text" value="<%= hotdogDoc.content %>" autofocus>
+    </label>
+
+    <br />
+
+    <!-- author, "" -->
+    <label>Author:
+      <input name="author" type="text" value="<%= hotdogDoc.author %>">
+    </label>
+
+    <br />
+    <button type="submit">Update this quote</button>
+  </form>
+
+
+  <!-- 🌭🌭🌭🌭 possibly update annotations w/ separate action -->
+  <!-- userAnnotations, [{}, {}] -->
+  <!-- <% hotdogDoc.userAnnotations.forEach(function(a, idx) { %>
+    <h2>Comment <%= idx + 1 %>
+    </h2>
+    Comment:
+    <pre><%= a.comment %></pre>
+    Where:
+    <pre><%= a.where %></pre>
+    Why:
+    <pre><%= a.why %></pre>
+    <% })%> -->
+
+
+<%- include('../partials/footer')%>

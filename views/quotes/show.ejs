@@ -1,43 +1,80 @@
 <%- include('../partials/header') %>
 
-<h2>The quote doc</h2>
-<pre> <%= thisQuoteDoc %></pre>
-<hr />
-<p><small><em>(So i can 1) add email and 2) see if different logins show different quotes)</em></small></p>
+  <h2>The quote doc</h2>
+  <pre> <%= thisQuoteDoc %></pre>
 
-<h2>The clicking user</h2>
-<pre> <%= user %></pre>
+  <!-- <div class="d-flex flex-column"> -->
+  <div class="row row-cols-1 offset-4">
+    <div>
+      <!-- <h2>col1</h2> -->
+      <figure class="border p-3 d-inline-block rounded">
+        <blockquote class="blockquote">
+          <p>
+            <%= thisQuoteDoc.content %>
+          </p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+          <%= thisQuoteDoc.author %> in <cite title="Source Title"> Source Title</cite>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  <!-- </div> -->
 
-<h3>Add some context to this quote</h3>
+  <!-- link to form for 'edit' action -->
+  <p>Need to <a href="/quotes/<%= thisQuoteDoc._id%>/edit">edit this quote</a>?</p>
 
-<form action="/quotes/<%= thisQuoteDoc._id %>/annotations" method="POST">
-  
-  <label>Where were you when you decided to add this quote?
-    <input type="text" name="where">
-  </label>
-  
-  <br />
-  
-  <label>Why are you adding it now?
-    <input type="text" name="why">
-  </label>
-  
-  <br />
-  
-  <label>Any other observations?
-    <input type="text" name="comment">
-  </label>
-  
+  <hr />
 
-  <br />
-  
-  <button type="submit">Add your annotation</button>
-</form>
+  <h2>The clicking user</h2>
+  <pre> <%= user %></pre>
 
-<h4>Deleting a quote</h4>
-<form action="/quotes/<%= thisQuoteDoc._id%>?_method=DELETE" method="POST">
-  <button type="submit">Delete this quote</button>
-  <p><small>(This is permanent. It will also delete all your annotations about this quote.)</small></p>
-</form>
+  <dl>
+    <dt>asdf</dt>
+    <dd>asdf</dd>
+  </dl>
 
-<%- include('../partials/footer') %>
+  <figure>
+    <blockquote class="blockquote">
+      <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+  </figure>
+
+  <h3>Add some context to this quote</h3>
+
+  <!-- ❗ possibly only allow one set of annotations -->
+  <!-- <% if (thisQuoteDoc.userAnnotations.length === 0) %> -->
+  <form action="/quotes/<%= thisQuoteDoc._id %>/annotations" method="POST">
+
+    <label>Where were you when you decided to add this quote?
+      <input type="text" name="where">
+    </label>
+
+    <br />
+
+    <label>Why are you adding it now?
+      <input type="text" name="why">
+    </label>
+
+    <br />
+
+    <label>Any other observations?
+      <input type="text" name="comment">
+    </label>
+
+
+    <br />
+
+    <button type="submit">Add your annotation</button>
+  </form>
+
+  <h4>Deleting a quote</h4>
+  <form action="/quotes/<%= thisQuoteDoc._id%>?_method=DELETE" method="POST">
+    <button type="submit">Delete this quote</button>
+    <p><small>(This is permanent. It will also delete all your annotations about this quote.)</small></p>
+  </form>
+
+  <%- include('../partials/footer') %>

@@ -4,28 +4,11 @@ const QuoteModel = require('../models/quote');
 module.exports = {
   create,
   delete: deleteQuote,
+  edit,
   index,
   new: newQuote,
   show,
-}
-
-// delete
-async function deleteQuote(req, res, next) {
-  try {
-    // grab this document
-    const thisQuoteDoc = await QuoteModel.findById(req.params.id);
-    console.log(thisQuoteDoc, "<-- actual thisQuoteDoc")
-
-    // delete 
-    await thisQuoteDoc.deleteOne();
-  
-    // redirect
-    res.redirect('/quotes')
-    
-  } catch (err) {
-    console.log(err);
-    res.send(err);
-  }
+  update
 }
 
 
@@ -66,6 +49,44 @@ async function create(req, res, next) {
 }
 
 
+// delete
+async function deleteQuote(req, res, next) {
+  try {
+    // grab this document
+    const thisQuoteDoc = await QuoteModel.findById(req.params.id);
+    console.log(thisQuoteDoc, "<-- actual thisQuoteDoc")
+
+    // delete 
+    await thisQuoteDoc.deleteOne();
+
+    // redirect
+    res.redirect('/quotes')
+
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+}
+
+
+// 'edit' form
+async function edit(req, res, next) {
+  try {
+    // get current doc from Mongo bc the 'edit' view will need it
+    // 🌭🌭🌭🌭
+    const hotdogDoc = await QuoteModel.findById(req.params.id);
+    // pass it off
+    // 🌭🌭🌭🌭
+    res.render('quotes/edit', { 
+      hotdogID: req.params.id, 
+      hotdogDoc
+   })
+  } catch (err) {
+    console.log(err)
+    res.send(err);
+  }
+}
+
 // index for all (my) quotes
 async function index(req, res, next) {
   try {
@@ -74,7 +95,7 @@ async function index(req, res, next) {
 
     const allYourQuoteDocs = await QuoteModel.find({
       user: req.user._id
-    }); 
+    });
     // ❗❗❗❗
     console.log(allYourQuoteDocs, "<-- all (your) quote docs");
     // ❗❗❗❗
@@ -100,16 +121,39 @@ function newQuote(req, res, next) {
 async function show(req, res, next) {
   try {
     // get this Quote from Mongo
-    const thisQuoteDoc = await QuoteModel.findOne({_id: req.params.id})
+    const thisQuoteDoc = await QuoteModel.findOne({ _id: req.params.id })
 
     // console.log(req.body, "<-- req.body");
     console.log(thisQuoteDoc, "<-- should be thisQuoteDoc");
 
-    res.render('quotes/show', 
-    {
-      thisQuoteDoc,
-      user: req.user
-    })
+    res.render('quotes/show',
+      {
+        thisQuoteDoc,
+        user: req.user
+      })
+
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+}
+
+
+// update existing quote
+async function update(req, res, next) {
+  try {
+    // get current doc from Mongo bc the 'edit' view will need it
+    const thisQuoteDoc = await QuoteModel.findById(req.params.id);
+
+    // update 
+    thisQuoteDoc.content = req.body.content;
+    thisQuoteDoc.author = req.body.author;
+
+    // save
+    await thisQuoteDoc.save();
+
+    // redirect to that quote's show page
+    res.redirect(`/quotes/${req.params.id}`)
 
   } catch (err) {
     console.log(err);
