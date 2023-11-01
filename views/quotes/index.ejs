@@ -2,60 +2,37 @@
 
   <% let name=user.name%>
 
-    <h2>Hi, <%= user.name %>! Here's all your quotes</h2>
+    <h2>Hi, <span id="greetMe!">
+        <%= user.name.match(/^\w*\b/).join() %>
+      </span>! Here's all your quotes</h2>
 
-    <p class="lead"><mark>Maybe use BS 'truncate' for long quotes and save full view for /show?</mark></p>
+    <div class="row" style="row-gap: 1.5em;">
+      <% quotes.forEach(function(q) { %>
 
-    <% quotes.forEach(function(q) { %>
-      <div class="quotesList">
-
-        <% if (user._id) { %>
-          <ul>
-            <a style="text-decoration: none; color: orangered;" href="/quotes/<%= q._id %>">
-              <li>
-                <%= q.content %><br />
-                <%= q.author %><br />
-                <%= user.email %><br />
-                <!-- <a href="/"><small>Edit me</small></a> -->
-                <!-- <a href="/quotes/<%= q._id %>">More…</a> -->
-              </li>
-            </a>
-          </ul>
-          <% } %>
-      </div>
-      <% }); %>
-
-
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-4">
+          <a style="text-decoration: none; color: inherit;" href="/quotes/<%= q._id %>" title="Edit this quote">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">[quote title?]</h5>
-                <q class="card-text">[quote content?]</q>
-                <p class="card-text text-secondary">[quote author?]
+                <p class="card-title lead text-truncate"><q>
+                    <%= q.content %>
+                  </q></p>
+                <!-- <q class="card-text text-truncate d-block ">
+                  <%= q.content %>
+                </q> -->
+                <p class="card-text text-secondary">
+                  &ndash; <%= q.author %>
                 </p>
-                <a href="#" class="btn btn-primary">[Edit metadata]</a>
+                <p class="text-center py-2 mt-2 mb-0"><a href="/quotes/<%= q._id %>" class="btn btn-primary btn-sm">Edit this quote</a></p>
               </div>
             </div>
-          </div> </a>
-          <div class="col-sm-6 col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
 
-        <%- include('../partials/footer')%>
+        <% }); %>
+
+
+    </div>
+
+
+
+    <%- include('../partials/footer')%>

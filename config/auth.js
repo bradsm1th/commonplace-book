@@ -5,3 +5,5 @@ module.exports = function ensureLoggedIn(req, res, next) {
 	// Redirect to login if the user is not already logged in
 	res.redirect('/auth/google');
   }
+
+	// use ⬆️ this logic for my /index route

@@ -1,3 +1,37 @@
+* {
+  --main-font: "ubuntu";
+  font-family: var(--main-font);
+}
+
+nav {
+  gap: 1em;
+}
+
+nav > a {
+  color: #8b9197;
+  text-decoration: none;
+  border: 2px solid #f8f9fa;
+  /* border-radius: .8em; */
+  padding-block: .2em;
+  padding-inline: .4em;
+}
+nav > a:hover {
+  color: #3272F6;
+  border-block-end: 2px solid;
+  transition: .2 all ease-in;
+}
+nav > a:first-child:hover {
+  border: 2px solid #f8f9fa;
+  border: default;
+  text-decoration: none;
+  transition: .2 all ease-in;
+}
+nav > a:last-child:hover {
+  color: orangered;
+  border-block-end: 2px solid;
+  transition: .2 all ease-in;
+}
+
 .brand-logo {
   margin-left: 15px;
 }
