@@ -13,17 +13,24 @@
 </head>
 
 <body>
-  <nav class="d-flex justify-content-start sticky-top">
-    <a href="/">❞</a>
+  <header>
+
+    <nav class="d-flex justify-content-start sticky-top">
+      <a href="/"><%= (user) ? "❞" : ""%></a>
     <% if (user) { %>
         <a href="/quotes"><mark>All quotes</mark></a>
         <a href="/quotes/new"><mark>Add a quote</mark></a>
-      <!-- Change route/text depending on log-in status -->
-        <a href="/logout" class="ms-auto">👋 Log out 👋</a>
+        <!-- Change route/text depending on log-in status -->
+        <a href="/logout" class="ms-auto">Log out</a>
     <% } else { %>
-        <a href="/auth/google" class="ms-auto">🤞 Log in 🤞</a>
-      <% } %>
+        <a href="/auth/google" class="ms-auto">Log in</a>
+      </nav>
+    <% } %>
 
-  </nav>
-  <h1 class="text-center">"Talk doesn't cook rice"</h1>
+  </header>
   <main>
+    <h1 class="text-center">
+      <span class="display-2">❞</span> 
+      <em>Talk doesn't cook rice</em>
+    </h1>
+    <p class="lead text-secondary text-center">A commonplace book for quotes, inspirations, and special things you've heard</p>

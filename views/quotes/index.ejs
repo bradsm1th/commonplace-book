@@ -7,48 +7,55 @@
     <p class="lead"><mark>Maybe use BS 'truncate' for long quotes and save full view for /show?</mark></p>
 
     <% quotes.forEach(function(q) { %>
+      <div class="quotesList">
 
-      <% if (user._id) { %>
-        <ul>
-          <li>
-            <%= q.content %><br />
-            <%= q.author %><br />
-            <%= user.email %><br />
-            <a href="/"><small>Edit me</small></a>
-            <a href="/quotes/<%= q._id %>">More…</a>
-          </li>
-        </ul>
-      <% } %>
-    <% }); %>
+        <% if (user._id) { %>
+          <ul>
+            <a style="text-decoration: none; color: orangered;" href="/quotes/<%= q._id %>">
+              <li>
+                <%= q.content %><br />
+                <%= q.author %><br />
+                <%= user.email %><br />
+                <!-- <a href="/"><small>Edit me</small></a> -->
+                <!-- <a href="/quotes/<%= q._id %>">More…</a> -->
+              </li>
+            </a>
+          </ul>
+          <% } %>
+      </div>
+      <% }); %>
 
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">[quote title?]</h5>
+                <q class="card-text">[quote content?]</q>
+                <p class="card-text text-secondary">[quote author?]
+                </p>
+                <a href="#" class="btn btn-primary">[Edit metadata]</a>
+              </div>
+            </div>
+          </div> </a>
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <%- include('../partials/footer')%>
+        <%- include('../partials/footer')%>

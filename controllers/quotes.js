@@ -3,10 +3,31 @@ const QuoteModel = require('../models/quote');
 
 module.exports = {
   create,
+  delete: deleteQuote,
   index,
   new: newQuote,
-  show
+  show,
 }
+
+// delete
+async function deleteQuote(req, res, next) {
+  try {
+    // grab this document
+    const thisQuoteDoc = await QuoteModel.findById(req.params.id);
+    console.log(thisQuoteDoc, "<-- actual thisQuoteDoc")
+
+    // delete 
+    await thisQuoteDoc.deleteOne();
+  
+    // redirect
+    res.redirect('/quotes')
+    
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+}
+
 
 // create has to be 'async…await' bc of the round-trip database actions
 async function create(req, res, next) {
@@ -79,7 +100,7 @@ function newQuote(req, res, next) {
 async function show(req, res, next) {
   try {
     // get this Quote from Mongo
-    const thisQuoteDoc = await QuoteModel.find({_id: req.params.id})
+    const thisQuoteDoc = await QuoteModel.findOne({_id: req.params.id})
 
     // console.log(req.body, "<-- req.body");
     console.log(thisQuoteDoc, "<-- should be thisQuoteDoc");

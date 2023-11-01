@@ -8,5 +8,36 @@
 <h2>The clicking user</h2>
 <pre> <%= user %></pre>
 
+<h3>Add some context to this quote</h3>
+
+<form action="/quotes/<%= thisQuoteDoc._id %>/annotations" method="POST">
+  
+  <label>Where were you when you decided to add this quote?
+    <input type="text" name="where">
+  </label>
+  
+  <br />
+  
+  <label>Why are you adding it now?
+    <input type="text" name="why">
+  </label>
+  
+  <br />
+  
+  <label>Any other observations?
+    <input type="text" name="comment">
+  </label>
+  
+
+  <br />
+  
+  <button type="submit">Add your annotation</button>
+</form>
+
+<h4>Deleting a quote</h4>
+<form action="/quotes/<%= thisQuoteDoc._id%>?_method=DELETE" method="POST">
+  <button type="submit">Delete this quote</button>
+  <p><small>(This is permanent. It will also delete all your annotations about this quote.)</small></p>
+</form>
 
 <%- include('../partials/footer') %>

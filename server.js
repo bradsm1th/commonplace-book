@@ -11,6 +11,7 @@ const methodOverride = require('method-override');
 // routers
 const indexRouter = require('./routes/index');
 const quotesRouter = require('./routes/quotes');
+const annotationsRouter = require('./routes/annotations');
 
 // create the Express app
 const app = express();
@@ -55,7 +56,7 @@ app.use(function (req, res, next) {
 /* =====================*/
 app.use('/', indexRouter);
 app.use('/quotes', quotesRouter);
-// app.use('/annotations', annotationsRouter);
+app.use('/', annotationsRouter);
 
 
 
