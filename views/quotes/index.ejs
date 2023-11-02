@@ -1,10 +1,11 @@
 <%- include('../partials/header')%>
 
+<main class="px-4">
+
   <% let name=user.name%>
 
-    <h2>Hi, <span id="greetMe!">
-        <%= user.name.match(/^\w*\b/).join() %>
-      </span>! Here's all your quotes</h2>
+    <p class="pt-2 lead">Hi,
+        <%= user.name.match(/^\w*\b/).join() %>! You've got <span><%= quotes.length%></span> quotes…</p>
 
     <div class="row" style="row-gap: 1.5em;">
       <% quotes.forEach(function(q) { %>
@@ -22,7 +23,7 @@
                 <p class="card-text text-secondary">
                   &ndash; <%= q.author %>
                 </p>
-                <p class="text-center py-2 mt-2 mb-0"><a href="/quotes/<%= q._id %>" class="btn btn-primary btn-sm">Edit this quote</a></p>
+                <p class="text-center py-2 mt-2 mb-0"><a href="/quotes/<%= q._id%>/edit" class="btn btn-outline-primary btn-sm">Edit this quote</a></p>
               </div>
             </div>
           </a>

@@ -3,6 +3,11 @@
   font-family: var(--main-font);
 }
 
+body {
+  max-width: 1200px;
+  height: 100vh;
+}
+
 nav {
   gap: 1em;
 }
@@ -18,17 +23,21 @@ nav > a {
   transition: .2s all ease-in-out;
 }
 nav > a:hover {
-  color: #3272F6;
+  text-decoration: none;
+  color: black;
 }
 nav > a:first-child:hover {
+  box-shadow: none;
   border: 2px solid #f8f9fa;
   border: default;
   text-decoration: none;
 }
 nav > a:last-child:hover {
-  text-decoration: none;
-  color: black;
-  box-shadow: 2px 2px 6px 0px indigo;
+  transition: .2s all ease-in-out;
+  /* background: linear-gradient(135deg, orange, orangered, blue); */
+  /* color: white; */
+  
+  box-shadow: 2px 2px 6px 0px orangered;
 }
 
 .brand-logo {
@@ -61,4 +70,9 @@ nav > a:last-child:hover {
   /* background-color: black; */
   border: 2px solid blue;
   border-radius: 7px;
+}
+
+footer {
+  margin-block-start: auto;
+  bottom: 1em;
 }

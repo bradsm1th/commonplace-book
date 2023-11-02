@@ -92,17 +92,15 @@ async function index(req, res, next) {
   try {
     // get all quotes from Mongo THAT THIS USER ADDED
 
-
     const allYourQuoteDocs = await QuoteModel.find({
       user: req.user._id
     });
-    // ❗❗❗❗
-    console.log(allYourQuoteDocs, "<-- all (your) quote docs");
-    // ❗❗❗❗
-
 
     res.render('quotes/index', {
-      quotes: allYourQuoteDocs
+      quotes: allYourQuoteDocs,
+      // 🌭
+      req,
+      // 🌭
     });
   } catch (err) {
     console.log(err)

@@ -1,9 +1,13 @@
 <%- include('./partials/header')%>
 
+<p class="lead text-secondary text-center">A commonplace book for all the special things you've heard</p>
+<main class="px-4">
+
   <!-- show only if authenticated -->
   <% if (user) { %>
-    <p class="text-center">You're logged in! <span class="text-white bg-info">(<%= user.email %>)</span></p>
+    <p style="display: none;" class="text-center"></p>
   <% } else { %>
     <p class="text-center"><a href="/auth/google" class="btn btn-primary btn-lg px-4">Sign in</a></p>
     <% } %>
+
 <%- include('./partials/footer')%>

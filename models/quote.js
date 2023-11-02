@@ -14,8 +14,14 @@ const annotationSchema = new mongoose.Schema({
 })
 
 const quoteSchema = new mongoose.Schema({
-  content: String,
-  author: String,
+  content: {
+    type: String,
+    required: true
+  },
+  author: {
+    type: String,
+    required: true
+  },
   // separate schema
   user: {
     type: mongoose.Schema.Types.ObjectId,
