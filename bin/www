@@ -7,6 +7,8 @@
 var app = require('../server');
 var debug = require('debug')('sei-students:server');
 var http = require('http');
+// the LH-syntax is "destructuring"
+const { connectDB } = require('../config/database');
 
 /**
  * Get port from environment and store in Express.
@@ -25,9 +27,13 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+// this is the end of a (successful promise)—now our app server won't start up until we've connected to our MongoDB
+connectDB().then(() => {
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+})
+
 
 /**
  * Normalize a port into a number, string, or false.

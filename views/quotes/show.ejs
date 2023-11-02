@@ -2,15 +2,15 @@
 
   <main class="px-4">
 
-    <section id="quoteDisplay" class="mx-auto w-75 pb-4">
+    <section id="quoteDisplay" class="row pb-4">
       <div class="text-center">
-        <p class="display-4" style="margin-block-start: 2em;"><q>
+        <p class="display-4 w-75 mx-auto" style="margin-block-start: 1em;"><q>
             <%= thisQuoteDoc.content %>
           </q></p>
-        <p class="lead">&ndash; <%= thisQuoteDoc.author %>
+        <p class="lead pt-2">&ndash; <%= thisQuoteDoc.author %>
         </p>
       </div>
-      <div class="mt-4 row offset-2">
+      <div class="mt-4 offset-2">
         <p class="col-sm-4 mb-0 mb-sm-2">Added:</p>
         <p class="col-sm-8">
           <%= thisQuoteDoc.createdAt %>

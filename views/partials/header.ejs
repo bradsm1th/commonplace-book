@@ -11,8 +11,10 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <!-- Font(s) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet">
   <title></title>
 </head>
 
@@ -23,20 +25,22 @@ d-flex flex-column
   <header class="px-2 py-2 sticky-top">
 
     <nav class="d-flex justify-content-start">
-      <a href="/"><span class="lead"><%= (user) ? "❞" : ""%></span></a>
-    <% if (user) { %>
+      <a href="/"><span class="lead">
+          <%= (user) ? "❞" : "" %>
+        </span></a>
+      <% if (user) { %>
         <a href="/quotes">All quotes</a>
         <a href="/quotes/new">Add a quote</a>
         <!-- Change route/text depending on log-in status -->
         <a href="/logout" class="ms-auto">Log out</a>
-    <% } else { %>
-        <a href="/auth/google" class="ms-auto">Log in</a>
-      </nav>
+        <% } else { %>
+          <a href="/auth/google" class="ms-auto">Log in</a>
+    </nav>
     <% } %>
 
   </header>
   <h1 class="text-center my-0">
     <!-- <span class="display-2 align-middle">❝</span>  -->
-    <span class="display-2 align-middle">❞</span> 
+    <span class="display-2 align-middle">❞</span>
     <em>Talk doesn't cook rice</em>
   </h1>
