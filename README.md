@@ -10,28 +10,28 @@ If you jot these things down, either immediately or soon after, you'll have an e
 # Screenshots
 
 <figure>
-<img src="https://i.imgur.com/Ci3hVRy.png" alt="the 'landing' view">
 <figcaption>The landing page</figcaption>
+<img src="https://i.imgur.com/Ci3hVRy.png" alt="the 'landing' view">
 </figure>
 
 <figure>
-<img src="https://i.imgur.com/mKPtuxw.png" alt="the 'index' view">
 <figcaption><small>Viewing all your quotes</small></figcaption>
+<img src="https://i.imgur.com/mKPtuxw.png" alt="the 'index' view">
 </figure>
 
 <figure>
-<img src="https://i.imgur.com/K0jfjVy.png" alt="the 'create' view">
 <figcaption><small>Adding a quote</small></figcaption>
+<img src="https://i.imgur.com/K0jfjVy.png" alt="the 'create' view">
 </figure>
 
 <figure>
-<img src="https://i.imgur.com/GVmQSFK.png" alt="the 'update' view">
 <figcaption><small>Updating a quote</small></figcaption>
+<img src="https://i.imgur.com/GVmQSFK.png" alt="the 'update' view">
 </figure>
 
 <figure>
-<img src="https://i.imgur.com/hGXg8Zh.png" alt="the 'show' view">
 <figcaption><small>Viewing a quote, adding annotations, and deleting a quote</small></figcaption>
+<img src="https://i.imgur.com/hGXg8Zh.png" alt="the 'show' view">
 </figure>
 
 # Technologies Used
