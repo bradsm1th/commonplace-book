@@ -7,7 +7,12 @@
     <p class="pt-2 lead">Hi,
         <%= user.name.match(/^\w*\b/).join() %>! You've got <span>
           <%= quotes.length%>
-        </span> <%= quotes.length === 1 ? "quote" : "quotes" %> …</p>
+        </span> <%= quotes.length === 1 ? "quote" : "quotes" %>. 
+        <% if (!quotes.length) { %>
+          Why not <a href="/quotes/new">add one</a>?
+        <% } %>
+      
+      </p>
 
     <div class="row" id="theCards" style="row-gap: 1.5em;">
       <% quotes.forEach(function(q) { %>
