@@ -20,9 +20,9 @@
 
 d-flex flex-column
 ">
-  <header class="px-2 py-2">
+  <header class="px-2 py-2 sticky-top">
 
-    <nav class="d-flex justify-content-start sticky-top">
+    <nav class="d-flex justify-content-start">
       <a href="/"><span class="lead"><%= (user) ? "❞" : ""%></span></a>
     <% if (user) { %>
         <a href="/quotes">All quotes</a>

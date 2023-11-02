@@ -73,13 +73,11 @@ async function deleteQuote(req, res, next) {
 async function edit(req, res, next) {
   try {
     // get current doc from Mongo bc the 'edit' view will need it
-    // 🌭🌭🌭🌭
-    const hotdogDoc = await QuoteModel.findById(req.params.id);
+    const thisQuoteDoc = await QuoteModel.findById(req.params.id);
     // pass it off
-    // 🌭🌭🌭🌭
     res.render('quotes/edit', { 
-      hotdogID: req.params.id, 
-      hotdogDoc
+      thisQuoteID: req.params.id, 
+      thisQuoteDoc
    })
   } catch (err) {
     console.log(err)
@@ -98,9 +96,6 @@ async function index(req, res, next) {
 
     res.render('quotes/index', {
       quotes: allYourQuoteDocs,
-      // 🌭
-      req,
-      // 🌭
     });
   } catch (err) {
     console.log(err)

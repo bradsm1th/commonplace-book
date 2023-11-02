@@ -8,6 +8,11 @@ body {
   height: 100vh;
 }
 
+header {
+  z-index: 123452;
+  background-color: #f8f9fa;
+}
+
 nav {
   gap: 1em;
 }
