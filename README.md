@@ -2,12 +2,12 @@
 This is a simple "commonplace book." Though the [general idea](https://en.wikipedia.org/wiki/Commonplace_book) of "keeping important quotes for later" has been around for hundreds of years, I did not start keeping my own until learning of them from [Ryan Holiday](https://ryanholiday.net/how-and-why-to-keep-a-commonplace-book/). 
 
 This version (V1) is simply a list of quotes you'd like to save. Alongside standard features like creating, editing, and deleting quotes, I've also included the option to add some metadata (what I call *context*):
-- where you were when you decided to capture this
-- why. what made you think this was worth saving
+- **Where.** Where you were when you decided to capture this.
+- **Why.** What made you think this was worth saving.
 
-If you jot these things down, either immediately or soon after, you'll have an even stronger recollection.
+If you jot these things down, either immediately or soon after, your recollection will be even stronger!
 
-# Screenshots
+## Screenshots
 
 <figure>
 <figcaption>The landing page</figcaption>
@@ -34,20 +34,23 @@ If you jot these things down, either immediately or soon after, you'll have an e
 <img src="https://i.imgur.com/hGXg8Zh.png" alt="the 'show' view">
 </figure>
 
-# Technologies Used
+## Technologies Used
 
-- HTML
-- CSS
+- HTML, CSS, vanilla JavaScript
 - Bootstrap
-- JavaScript
 - MongoDB Atlas
 - Mongoose
+- OAuth 2.0
+- Node.js
+- Express
 - Cyclic
 
-# Getting Started
+## Getting Started
 
-[Click to Play Connect Four!](your deployment url here)
+To try for yourself, just visit the hosted version:
 
-# Next Steps
+[Commonplace Book](https://anxious-lion-tank-top.cyclic.app/)
+
+## Next Steps
 - Marking some quotes as public
 - One-click adding someone else's public quote to *your* quotes
