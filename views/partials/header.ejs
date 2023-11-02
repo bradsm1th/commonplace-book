@@ -18,10 +18,7 @@
   <title></title>
 </head>
 
-<body class="bg-light mx-auto
-
-d-flex flex-column
-">
+<body class="bg-light mx-auto d-flex flex-column">
   <header class="px-2 py-2 sticky-top">
 
     <nav class="d-flex justify-content-start">
@@ -29,8 +26,9 @@ d-flex flex-column
           <%= (user) ? "❞" : "" %>
         </span></a>
       <% if (user) { %>
-        <a href="/quotes">All quotes</a>
         <a href="/quotes/new">Add a quote</a>
+        <a href="/quotes">Your quotes</a>
+        <a href="/quotes/all">Everyone's quotes</a>
         <!-- Change route/text depending on log-in status -->
         <a href="/logout" class="ms-auto">Sign out</a>
         <% } else { %>

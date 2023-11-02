@@ -13,6 +13,8 @@ const quotes = require('../controllers/quotes');
 
 // GET /quotes [for just logged-in user]
 router.get('/', ensureLoggedIn, quotesController.index)
+// GET /quotes/all (all quotes regardless of user?)
+router.get('/all', ensureLoggedIn, quotesController.getAll)
 // GET /quotes/new
 router.get('/new', ensureLoggedIn, quotesController.new)
 // GET /quotes/:id

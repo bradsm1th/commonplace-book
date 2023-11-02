@@ -14,7 +14,7 @@ header {
 }
 
 nav {
-  gap: 1em;
+  gap: .5em;
 }
 
 nav > a {
@@ -25,7 +25,7 @@ nav > a {
   /* border-radius: .8em; */
   padding-block: .2em;
   padding-inline: 1em;
-  transition: .1s all ease-in-out;
+  transition: .2s all ease-in-out;
 }
 nav > a:hover {
   text-decoration: none;

@@ -5,10 +5,22 @@ module.exports = {
   create,
   delete: deleteQuote,
   edit,
+  getAll,
   index,
   new: newQuote,
   show,
   update
+}
+
+async function getAll(req, res, next) {
+  try {
+    // get ALL docs with "content" if authenticated
+    const allQuoteDocs = await QuoteModel.find({}).sort({createdAt: -1}).populate('user').exec();
+    res.render('quotes/all', { allQuoteDocs });
+  } catch (err) {
+    console.log(err)
+    res.send(err);
+  }
 }
 
 
@@ -36,12 +48,8 @@ async function create(req, res, next) {
       author: req.body.author,
       user: req.user._id,
     })
-
     await thisQuoteDoc.save();
-
-    // ❗❗❗❗
     res.redirect('/quotes');
-    // ❗❗❗❗
   } catch (err) {
     console.log(err)
     res.send(err);
@@ -75,10 +83,10 @@ async function edit(req, res, next) {
     // get current doc from Mongo bc the 'edit' view will need it
     const thisQuoteDoc = await QuoteModel.findById(req.params.id);
     // pass it off
-    res.render('quotes/edit', { 
-      thisQuoteID: req.params.id, 
+    res.render('quotes/edit', {
+      thisQuoteID: req.params.id,
       thisQuoteDoc
-   })
+    })
   } catch (err) {
     console.log(err)
     res.send(err);

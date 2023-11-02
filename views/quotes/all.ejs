@@ -1,0 +1,20 @@
+<%- include('../partials/header')%>
+
+
+  <main class="px-4">
+
+
+  <% allQuoteDocs.forEach(function(q) { %>
+    
+    <!-- <div class="row">   -->
+      <p class="lead d-inline-block fw-bold"><q><em><%= q.content %></em></q></p>
+      <p class="d-inline-block"> &ndash; <%= q.author %> </p>
+      <br />
+      <p class="d-inline-block">Posted by <%= q.user.name %>, </p>
+      <p class="d-inline-block"><%= q.createdAt.toLocaleString()%></p>
+    <!-- </div> -->
+      <hr />
+    
+  <% }) %>
+
+<%- include('../partials/footer')%>
