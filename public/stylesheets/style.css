@@ -47,8 +47,9 @@ nav > a:last-child:hover {
 }
 
 #theCards > * > div:hover {
-  /* background-color: gold; */
+  background-color: whitesmoke;
   box-shadow: 0em 0em .7em .1em indigo;
+  transition: .2s all ease-in-out;
 }
 
 .card .card-content .card-title {
