@@ -1,44 +1,31 @@
 <%- include('../partials/header')%>
 
-<main class="px-4">
+  <main class="px-4">
+
+    <form action="/quotes/<%= hotdogDoc._id %>?_method=PUT" method="POST" class="col-8 offset-2">
 
 
-  <!-- <pre><%= hotdogDoc %></pre> -->
+      <div class="row mt-3">
+        <label for="quoteBox" class="col-sm-2 col-form-label col-form-label-lg">Quote</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="quoteBox" placeholder="" name="content"
+            value="<%= hotdogDoc.content %>" autofocus>
+        </div>
+      </div>
 
-  <h2>Quotes</h2>
-  <form 
-    action="/quotes/<%= hotdogDoc._id %>?_method=PUT" 
-    method="POST">
+      <div class="row mt-3">
+        <label for="authorBox" class="col-sm-2 col-form-label col-form-label-lg">Author</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-lg" id="authorBox" placeholder="" name="author"
+            value="<%= hotdogDoc.author %>">
+        </div>
+      </div>
 
-    <!-- content, "" -->
-    <label>Quote:
-      <input name="content" type="text" value="<%= hotdogDoc.content %>" autofocus>
-    </label>
+      <button 
+        class="btn btn-outline-primary btn-lg d-block mx-auto w-50 my-4" 
+        style="max-width: 15em;" 
+        type="submit">
+        Update this quote</button>
+    </form>
 
-    <br />
-
-    <!-- author, "" -->
-    <label>Author:
-      <input name="author" type="text" value="<%= hotdogDoc.author %>">
-    </label>
-
-    <br />
-    <button type="submit">Update this quote</button>
-  </form>
-
-
-  <!-- 🌭🌭🌭🌭 possibly update annotations w/ separate action -->
-  <!-- userAnnotations, [{}, {}] -->
-  <!-- <% hotdogDoc.userAnnotations.forEach(function(a, idx) { %>
-    <h2>Comment <%= idx + 1 %>
-    </h2>
-    Comment:
-    <pre><%= a.comment %></pre>
-    Where:
-    <pre><%= a.where %></pre>
-    Why:
-    <pre><%= a.why %></pre>
-    <% })%> -->
-
-
-<%- include('../partials/footer')%>
+    <%- include('../partials/footer')%>
