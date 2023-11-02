@@ -2,75 +2,63 @@
 
   <main class="px-4">
 
-
-    <h2>The quote doc</h2>
-    <pre> <%= thisQuoteDoc %></pre>
-
-    <!-- <div class="d-flex flex-column"> -->
-    <div class="row row-cols-1 offset-4">
-      <div>
-        <!-- <h2>col1</h2> -->
-        <figure class="border p-3 d-inline-block rounded">
-          <blockquote class="blockquote">
-            <p>
-              <%= thisQuoteDoc.content %>
-            </p>
-          </blockquote>
-          <figcaption class="blockquote-footer">
-            <%= thisQuoteDoc.author %> in <cite title="Source Title"> Source Title</cite>
-          </figcaption>
-        </figure>
+    <section id="quoteDisplay" class="mx-auto w-75 pb-4">
+      <div class="text-center">
+        <p class="display-4" style="margin-block-start: 2em;"><q>
+            <%= thisQuoteDoc.content %>
+          </q></p>
+        <p class="lead">&ndash; <%= thisQuoteDoc.author %>
+        </p>
       </div>
-    </div>
-    <!-- </div> -->
+      <div class="mt-4 row offset-2">
+        <p class="col-sm-4 mb-0 mb-sm-2">Added:</p>
+        <p class="col-sm-8">
+          <%= thisQuoteDoc.createdAt %>
+        </p>
+        <p class="col-sm-4 mb-0 mb-sm-2">Last updated:</p>
+        <p class="col-sm-8 mb-0 mb-sm-2">
+          <%= thisQuoteDoc.updatedAt %>
+        </p>
+        <p class="col-sm-4 text-secondary" style="margin-top: -.5em;">Need to <a class="link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/quotes/<%= thisQuoteDoc._id%>/edit">edit
+              this quote</a>?</p>
+      </div>
+    </section>
 
     <!-- link to form for 'edit' action -->
-    <p>Need to <a href="/quotes/<%= thisQuoteDoc._id%>/edit">edit this quote</a>?</p>
 
-    <hr />
+    <h3 class="text-center pt-4 border-top">Add some context</h3>
 
-    <h2>The clicking user</h2>
-    <pre> <%= user %></pre>
 
-    <dl>
-      <dt>asdf</dt>
-      <dd>asdf</dd>
-    </dl>
+    <form action="/quotes/<%= thisQuoteDoc._id %>/annotations" method="POST" style="position: relative">
 
-    <figure>
-      <blockquote class="blockquote">
-        <p>A well-known quote, contained in a blockquote element.</p>
-      </blockquote>
-      <figcaption class="blockquote-footer">
-        Someone famous in <cite title="Source Title">Source Title</cite>
-      </figcaption>
-    </figure>
+      <div class="row mt-3">
+        <label for="whereBox" class="offset-2 col-sm-5 col-form-label">Where were you when you decided to add
+          this?</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="whereBox" placeholder="" name="where"
+            value="<%= thisQuoteDoc.userAnnotations.where %>">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <label for="whyBox" class="offset-2 col-sm-5 col-form-label">Why are you adding it?</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="whyBox" placeholder="" name="where"
+            value="<%= thisQuoteDoc.userAnnotations.why %>">
+        </div>
+      </div>
 
-    <h3>Add some context to this quote</h3>
-
-    <!-- ❗ possibly only allow one set of annotations -->
-    <!-- <% if (thisQuoteDoc.userAnnotations.length === 0) %> -->
-    <form action="/quotes/<%= thisQuoteDoc._id %>/annotations" method="POST">
-
-      <label>Where were you when you decided to add this quote?
-        <input type="text" name="where">
-      </label>
-
-      <br />
-
-      <label>Why are you adding it now?
-        <input type="text" name="why">
-      </label>
-
-      <br />
-
-      <button type="submit">Add your annotation</button>
+      <button class="btn btn-outline-primary d-block mx-auto w-50 my-4" style="max-width: 15em;" type="submit">
+        Add this annotation</button>
     </form>
 
-    <h4>Deleting a quote</h4>
-    <form action="/quotes/<%= thisQuoteDoc._id%>?_method=DELETE" method="POST">
-      <button type="submit">Delete this quote</button>
-      <p><small>(This is permanent. It will also delete all your annotations about this quote.)</small></p>
-    </form>
+    <section class="text-center">
+
+      <h3 class="py-4 border-top">Change your mind?</h3>
+      <p>(This is permanent. It will also delete all your annotations about this quote.)</p>
+      <form action="/quotes/<%= thisQuoteDoc._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-outline-danger d-block mx-auto w-50 my-4" style="max-width: 15em;" type="submit">
+          Delete this quote</button>
+      </form>
+    </section>
 
     <%- include('../partials/footer') %>

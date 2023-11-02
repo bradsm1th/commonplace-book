@@ -25,7 +25,7 @@ nav > a {
   /* border-radius: .8em; */
   padding-block: .2em;
   padding-inline: 1em;
-  transition: .2s all ease-in-out;
+  transition: .1s all ease-in-out;
 }
 nav > a:hover {
   text-decoration: none;
@@ -42,7 +42,8 @@ nav > a:last-child:hover {
   /* background: linear-gradient(135deg, orange, orangered, blue); */
   /* color: white; */
   
-  box-shadow: 2px 2px 6px 0px orangered;
+  box-shadow: 0em 0em .1em .2em orangered;
+  /* box-shadow: 2px 2px 6px 0px orangered; */
 }
 
 #theCards > * > div:hover {
