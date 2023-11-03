@@ -1,11 +1,8 @@
 const router = require('express').Router();
-const passport = require('passport');
 const ensureLoggedIn = require('../config/auth')
 
 // Controller(s)
 const quotesController = require('../controllers/quotes');
-const quote = require('../models/quote');
-const quotes = require('../controllers/quotes');
 
 /* =======================
 /* All quote routes start with "/quotes")
