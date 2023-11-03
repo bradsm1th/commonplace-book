@@ -8,16 +8,6 @@ body {
   height: 100vh;
 }
 
-@media (max-width: 576px) {
-  body {
-    max-width: 100vw;
-  }
-  nav {
-    display: flex;
-    justify-content: center;
-  }
-}
-
 header {
   z-index: 123452;
   background-color: #f8f9fa;
@@ -32,7 +22,6 @@ nav > a {
   text-decoration: none;
   letter-spacing: .1em;
   border: 2px solid #f8f9fa;
-  /* border-radius: .8em; */
   padding-block: .2em;
   padding-inline: 1em;
   transition: .2s all ease-in-out;
@@ -49,11 +38,7 @@ nav > a:first-child:hover {
 }
 nav > a:last-child:hover {
   transition: .2s all ease-in-out;
-  /* background: linear-gradient(135deg, orange, orangered, blue); */
-  /* color: white; */
-  
   box-shadow: 0em 0em .1em .2em orangered;
-  /* box-shadow: 2px 2px 6px 0px orangered; */
 }
 
 #theCards > * > div:hover {
@@ -80,7 +65,17 @@ nav > a:last-child:hover {
 }
 
 .quotesList li:hover {
-  /* background-color: black; */
   border: 2px solid blue;
   border-radius: 7px;
+}
+
+
+@media (max-width: 576px) {
+  body {
+    max-width: 100vw;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+  }
 }

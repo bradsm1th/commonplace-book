@@ -4,7 +4,6 @@ const annotationSchema = new mongoose.Schema({
   comment: String,
   where: String,
   why: String,
-  // when: String, (just use createdAt timestamp)
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

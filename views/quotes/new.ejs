@@ -1,42 +1,26 @@
 <%- include('../partials/header') %>
 
-<main class="px-4">
+  <main class="px-4">
 
+    <form action="/quotes" method="POST" class="col-8 offset-2">
 
-<form action="/quotes" method="POST" class="col-8 offset-2">
-  
+      <div class="row mt-3">
+        <label for="quoteBox" class="col-sm-2 col-form-label col-form-label-lg">Quote</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="quoteBox" placeholder="" name="content" autofocus
+            required>
+        </div>
+      </div>
 
-  <div class="row mt-3">
-    <label for="quoteBox" class="col-sm-2 col-form-label col-form-label-lg">Quote</label>
-    <div class="col-sm-10">
-      <input 
-        type="text" 
-        class="form-control form-control-lg" id="quoteBox" 
-        placeholder=""
-        name="content"
-        autofocus
-        required>
-    </div>
-  </div>
-  
-  <div class="row mt-3">
-    <label for="authorBox" class="col-sm-2 col-form-label col-form-label-lg">Author</label>
-    <div class="col-sm-5">
-      <input 
-        type="text" 
-        class="form-control form-control-lg"
-        id="authorBox" 
-        placeholder=""
-        name="author"
-        required>
-    </div>
-  </div>
-  
-  <button 
-    class="btn btn-outline-primary btn-lg d-block mx-auto my-4"
-    style="max-width: 15em;"
-    type="submit">
-    Remember this quote</button>
-</form>
+      <div class="row mt-3">
+        <label for="authorBox" class="col-sm-2 col-form-label col-form-label-lg">Author</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-lg" id="authorBox" placeholder="" name="author" required>
+        </div>
+      </div>
+
+      <button class="btn btn-outline-primary btn-lg d-block mx-auto my-4" style="max-width: 15em;" type="submit">
+        Remember this quote</button>
+    </form>
 
 <%- include('../partials/footer') %>

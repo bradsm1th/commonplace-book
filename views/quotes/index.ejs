@@ -11,8 +11,7 @@
         <% if (!quotes.length) { %>
           Why not <a href="/quotes/new">add one</a>?
         <% } %>
-      
-      </p>
+    </p>
 
     <div class="row" id="theCards" style="row-gap: 1.5em;">
       <% quotes.forEach(function(q) { %>
@@ -35,8 +34,8 @@
             </div>
           </a>
         </div>
-
         <% }); %>
+        
     </div>
 
-    <%- include('../partials/footer')%>
+<%- include('../partials/footer')%>

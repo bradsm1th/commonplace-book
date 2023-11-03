@@ -27,7 +27,6 @@ async function getAll(req, res, next) {
 // create has to be 'async…await' bc of the round-trip database actions
 async function create(req, res, next) {
   try {
-
     // create quote doc
     const thisQuoteDoc = await QuoteModel.create({
       content: req.body.content,
@@ -82,14 +81,10 @@ async function edit(req, res, next) {
 async function index(req, res, next) {
   try {
     // get all quotes from Mongo THAT THIS USER ADDED
-
-    const allYourQuoteDocs = await QuoteModel.find({
-      user: req.user._id
-    }).sort({createdAt: -1});
-
-    res.render('quotes/index', {
-      quotes: allYourQuoteDocs,
-    });
+    const allYourQuoteDocs = await QuoteModel
+      .find({user: req.user._id})
+      .sort({createdAt: -1});
+    res.render('quotes/index', { quotes: allYourQuoteDocs });
   } catch (err) {
     console.log(err)
     res.send(err);
@@ -108,13 +103,11 @@ async function show(req, res, next) {
   try {
     // get this Quote from Mongo
     const thisQuoteDoc = await QuoteModel.findOne({ _id: req.params.id })
-
     res.render('quotes/show',
       {
         thisQuoteDoc,
         user: req.user
       })
-
   } catch (err) {
     console.log(err);
     res.send(err);
