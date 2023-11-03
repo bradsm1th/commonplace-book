@@ -2,25 +2,26 @@
 
   <main class="px-4">
 
-    <section id="quoteDisplay" class="row pb-4">
+    <section id="quoteDisplay" class="pb-2 mx-auto">
       <div class="text-center">
-        <p class="display-4 w-75 mx-auto" style="margin-block-start: 1em;"><q>
+        <p class="display-4" style="margin-block-start: 1em;"><q>
             <%= thisQuoteDoc.content %>
           </q></p>
         <p class="lead pt-2">&ndash; <%= thisQuoteDoc.author %>
         </p>
+        <p class="text-secondary">Need to <a
+          class="link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+          href="/quotes/<%= thisQuoteDoc._id%>/edit">edit this quote</a>?</p>
       </div>
-      <div class="mt-4 offset-2">
-        <p class="col-sm-4 mb-0 mb-sm-2">Added:</p>
-        <p class="col-sm-8">
-          <%= thisQuoteDoc.createdAt %>
+      <div class="mt-4">
+        <p class="col-sm-4 mb-0 fw-bold">Last updated:</p>
+        <p class="col-sm-6 mb-0 mb-sm-2">
+          <%= thisQuoteDoc.updatedAt.toLocaleString() %>
         </p>
-        <p class="col-sm-4 mb-0 mb-sm-2">Last updated:</p>
-        <p class="col-sm-8 mb-0 mb-sm-2">
-          <%= thisQuoteDoc.updatedAt %>
+        <p class="col-sm-4 pt-2 mb-0 fw-bold">Added:</p>
+        <p class="col-sm-6">
+          <%= thisQuoteDoc.createdAt.toLocaleString() %>
         </p>
-        <p class="col-sm-4 text-secondary" style="margin-top: -.5em;">Need to <a class="link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/quotes/<%= thisQuoteDoc._id%>/edit">edit
-              this quote</a>?</p>
       </div>
     </section>
 
@@ -31,19 +32,19 @@
 
     <form action="/quotes/<%= thisQuoteDoc._id %>/annotations" method="POST" style="position: relative">
 
-      <div class="row mt-3">
-        <label for="whereBox" class="offset-2 col-sm-5 col-form-label">Where were you when you decided to add
-          this?</label>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" id="whereBox" placeholder="" name="where"
-            value="<%= thisQuoteDoc.userAnnotations.where %>">
-        </div>
-      </div>
-      <div class="row mt-3">
-        <label for="whyBox" class="offset-2 col-sm-5 col-form-label">Why are you adding it?</label>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" id="whyBox" placeholder="" name="where"
-            value="<%= thisQuoteDoc.userAnnotations.why %>">
+      <div class="container g-0">
+        <div class="row my-3 text-center text-sm-end" style="row-gap: 1em;">
+          <label for="whereBox" class="col-sm-4 col-form-label">Where were you when you decided to add
+            this?</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="whereBox" placeholder="" name="where"
+              value="<%= thisQuoteDoc.userAnnotations.where %>">
+          </div>
+          <label for="whyBox" class="col-sm-4 col-form-label">Why are you adding it?</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="whyBox" placeholder="" name="where"
+              value="<%= thisQuoteDoc.userAnnotations.why %>">
+          </div>
         </div>
       </div>
 
@@ -53,7 +54,7 @@
 
     <section class="text-center">
 
-      <h3 class="py-4 border-top">Change your mind?</h3>
+      <h3 class="pt-3 pb-2 border-top">Change your mind?</h3>
       <p>(This is permanent. It will also delete all your annotations about this quote.)</p>
       <form action="/quotes/<%= thisQuoteDoc._id%>?_method=DELETE" method="POST">
         <button class="btn btn-outline-danger d-block mx-auto w-50 my-4" style="max-width: 15em;" type="submit">

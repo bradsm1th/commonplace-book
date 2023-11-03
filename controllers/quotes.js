@@ -100,7 +100,7 @@ async function index(req, res, next) {
 
     const allYourQuoteDocs = await QuoteModel.find({
       user: req.user._id
-    });
+    }).sort({createdAt: -1});
 
     res.render('quotes/index', {
       quotes: allYourQuoteDocs,
