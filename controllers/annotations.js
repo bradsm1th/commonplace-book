@@ -11,9 +11,6 @@ module.exports = {
 
 async function create(req, res, next) {
 
-  console.log(req.body, "<-- req.body (the metadata)");
-  console.log(req.params.id, "<-- req.params.id (the quote)");
-
   try {
     // grab correct doc from DB
     const thisQuoteDoc = await QuoteModel.findById(req.params.id)

@@ -26,20 +26,6 @@ async function getAll(req, res, next) {
 
 // create has to be 'async…await' bc of the round-trip database actions
 async function create(req, res, next) {
-  // console.log(req.body, "<-- req.body ALL");
-  console.log(req.body.content, "<-- quote content");
-  console.log(req.body.author, "<-- quote author");
-
-  console.log(req.body.comment, "<-- comment");
-  console.log(req.body.where, "<-- where");
-  console.log(req.body.why, "<-- why");
-
-  console.log(req.user.email, "<-- poster email");
-  console.log(req.user.googleId, "<-- poster ID");
-  console.log(req.user._id, "<-- Mongo ID");
-
-  // console.log(res.locals, "<-- res.locals");
-
   try {
 
     // create quote doc
@@ -62,7 +48,6 @@ async function deleteQuote(req, res, next) {
   try {
     // grab this document
     const thisQuoteDoc = await QuoteModel.findById(req.params.id);
-    console.log(thisQuoteDoc, "<-- actual thisQuoteDoc")
 
     // delete 
     await thisQuoteDoc.deleteOne();
@@ -123,9 +108,6 @@ async function show(req, res, next) {
   try {
     // get this Quote from Mongo
     const thisQuoteDoc = await QuoteModel.findOne({ _id: req.params.id })
-
-    // console.log(req.body, "<-- req.body");
-    console.log(thisQuoteDoc, "<-- should be thisQuoteDoc");
 
     res.render('quotes/show',
       {
