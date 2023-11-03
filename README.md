@@ -1,5 +1,5 @@
 # Commonplace Book 
-This is a simple "commonplace book." Though the [general idea](https://en.wikipedia.org/wiki/Commonplace_book) of "keeping important quotes for later" has been around for hundreds of years, I did not start keeping my own until learning of them from [Ryan Holiday](https://ryanholiday.net/how-and-why-to-keep-a-commonplace-book/). 
+This is a simple "commonplace book". Though the [general idea](https://en.wikipedia.org/wiki/Commonplace_book) of "keeping important quotes for later" has been around for hundreds of years, I did not start keeping my own until learning of them from [Ryan Holiday](https://ryanholiday.net/how-and-why-to-keep-a-commonplace-book/). 
 
 This version (V1) is simply a list of quotes you'd like to save. Alongside standard features like creating, editing, and deleting quotes, I've also included the option to add some metadata (what I call *context*):
 - **Where.** Where you were when you decided to capture this.
