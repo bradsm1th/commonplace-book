@@ -59,3 +59,4 @@ To try for yourself, just visit the hosted version:
 ## Next Steps
 - Marking some quotes as private so they don't show on the "Everyone's Quotes" view
 - One-click adding someone else's public quote to *your* quotes
+- Showing a random quote on the landing page
