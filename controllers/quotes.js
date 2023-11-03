@@ -12,17 +12,6 @@ module.exports = {
   update
 }
 
-async function getAll(req, res, next) {
-  try {
-    // get ALL docs with "content" if authenticated
-    const allQuoteDocs = await QuoteModel.find({}).sort({createdAt: -1}).populate('user').exec();
-    res.render('quotes/all', { allQuoteDocs });
-  } catch (err) {
-    console.log(err)
-    res.send(err);
-  }
-}
-
 
 // create has to be 'async…await' bc of the round-trip database actions
 async function create(req, res, next) {
@@ -76,6 +65,20 @@ async function edit(req, res, next) {
     res.send(err);
   }
 }
+
+
+// get *everyone's* quotes, not just yours (sorted by created date)
+async function getAll(req, res, next) {
+  try {
+    // get ALL docs with "content" if authenticated
+    const allQuoteDocs = await QuoteModel.find({}).sort({createdAt: -1}).populate('user').exec();
+    res.render('quotes/all', { allQuoteDocs });
+  } catch (err) {
+    console.log(err)
+    res.send(err);
+  }
+}
+
 
 // index for all (my) quotes
 async function index(req, res, next) {
