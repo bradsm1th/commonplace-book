@@ -15,7 +15,12 @@ If you jot these things down, either immediately or soon after, your recollectio
 </figure>
 
 <figure>
-<figcaption><small>Viewing all your quotes</small></figcaption>
+<figcaption><small>Viewing everyone's quotes</small></figcaption>
+<img src="https://i.imgur.com/xr9o3fu.png" alt="the 'everyone\'s quotes' view">
+</figure>
+
+<figure>
+<figcaption><small>Viewing all your quotes and their annotations</small></figcaption>
 <img src="https://i.imgur.com/mKPtuxw.png" alt="the 'index' view">
 </figure>
 
@@ -52,5 +57,5 @@ To try for yourself, just visit the hosted version:
 [Commonplace Book](https://anxious-lion-tank-top.cyclic.app/)
 
 ## Next Steps
-- Marking some quotes as public
+- Marking some quotes as private so they don't show on the "Everyone's Quotes" view
 - One-click adding someone else's public quote to *your* quotes
